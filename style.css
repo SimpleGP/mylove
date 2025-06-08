@@ -1,0 +1,187 @@
+   
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      color: #8B0000; /* Rojo sangre */
+      text-shadow: 0 0 10px #8B0000;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #ccc;
+      margin: 40px 0;
+      border-left: 4px solid #8B0000;
+      padding-left: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: transparent;
+      border: 2px solid #8B0000;
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: #8B0000;
+      color: #000;
+    }
+
+    .audio-player {
+      text-align: center;
+        margin: 20px 0;
+        }
+
+   #audio {
+        display: none;
+        }
+
+    #audio::-webkit-media-controls {
+      display: none !important;
+      }
+
+    #audio::-moz-media-controls {
+        display: none !important;
+          }
+
+    #playButton {
+        font-family: 'Cinzel', serif;
+        background-color: #2b0000;
+        color: #fff;
+        border: 2px solid #8B0000;
+        padding: 12px 28px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-shadow: 0 0 5px #8B0000;
+        box-shadow: 0 0 10px #400000, inset 0 0 5px #8B0000;
+       transition: 0.3s ease;
+            }
+
+    #playButton:hover {
+       background-color: #8B0000;
+      color: #000;
+      box-shadow: 0 0 15px #FF0000, inset 0 0 10px #800000;
+        }
+
+    .kate{
+        float:left;
+    }
+    .giu{
+        float:right;
+    }
+    .imagen-con-frase {
+       float:left;
+       position: relative;
+       width: 120px;
+       text-align: center;
+
+      }
+    .imagen-con-frase2 {
+       float:right;
+       position: relative;
+      width: 120px;
+         text-align: center;
+        
+      }
+
+
+    .fraseka {/*frase de kate*/
+        float:left;
+       position: absolute;
+       top: -93px;
+       left: 50%;
+       transform: translateX(-20%);
+        width: 200px;
+        font-size: 1rem;
+       color: #8B0000;
+       background-color: transparent;
+       text-align: center;
+      
+        }
+
+    .frasegi {/*frase de gp*/
+        float:right;
+        position: absolute;
+        top: -113px;
+        left: 50%;
+        transform: translateX(-80%);
+        width: 200px;
+        font-size: 1rem;
+        color: #8B0000;
+        background-color: transparent;
+        text-align: center;
+   
+         
+        }
+    #videosor {
+         display: none;
+        position: fixed;
+         top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background-color: black;
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transform: scale(0.98);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+            }
+
+
+    #videosor.visible {
+        opacity: 1.0; /*Dejarlo en 0.5 o 1.0*/
+        transform: scale(1.0);
+        
+
+        }
+    .imagen-izquierda img{
+       float:left;
+    }
+    .imagen-derecha img{
+       float:right;
+    }
+    .imagenes-laterales img{ /*siempre definir si es imagen*/
+
+        transition: opacity 1s ease;
+    }
+
+    #carta {
+  display: none;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid pink;
+  border-radius: 15px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  transition: all 0.5s ease;
+  backdrop-filter: blur(6px);
+}

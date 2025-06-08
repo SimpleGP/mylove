@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You My Love Kateryna</title>
+  <link rel="stylesheet" href="carta.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Crimson+Text&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  
+  <div class="audio-player" >
+    <button id="playButton"  >▶ PLAY</button>
+    <audio id="audio" src="sounds/love2.mp3" loop></audio>
+  </div>
+
+ <div class="heart-container"></div>
+   <div class="contenedor">
+  <div class="carta">
+    <h1>For you My love</h1>
+    <p>
+      Hello my love, I know I'm not close enough to give you a letter in person, <br>
+      but at least I can write to you like this. You know I'm not always good at explaining myself, <br>
+      but believe me, if you were in my head for a moment, you'd see <br>
+      that you're always there, I'm always thinking of you. <br><br>
+      
+      I can't stop imagining a future by your side. Finish college, get a job,<br>
+      and when I have enough money, go where you are to spend time with you:<br>
+      watching movies, playing games, hugging endlessly.<br><br>
+
+      Every time you say you love me or send a text message, my heart races.<br>
+      You make me feel so loved, and I want to do everything I can to return that happiness.<br><br>
+
+      I don't know if it sounds too cheesy, hahaha, but I love you with every part of my being.<br>
+      I want to be with you forever, my love.<br>
+    </p>
+    <a href="doc.html" class="volver">⬅ Back</a>
+        </div>
+    </div>
+  <!-- Script del botón de audio -->
+
+  <script>
+    const audio = document.getElementById("audio");
+    const playButton = document.getElementById("playButton");
+
+    audio.volume = 1.0;
+
+    playButton.addEventListener("click", function () {
+      if (audio.paused) {
+        audio.play();
+        playButton.textContent = "❚❚ STOP";
+      } else {
+        audio.pause();
+        playButton.textContent = "▶ PLAY";
+      }
+    });
+  </script>
+
+    <script>
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 5) + "s";
+    heart.style.opacity = Math.random();
+
+    document.querySelector(".heart-container").appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+</body>
+
+</html>
