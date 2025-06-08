@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love </title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <div class="audio-player">
+  <button id="playButton">▶ PLAY</button>
+  <audio id="audio" src="sounds/love1.mp3" loop></audio>
+
+  </div>
+
+  <!--Video oculto al minuto -->
+<div id="videosor">
+<video id="video" width="100%" height="100%"  autoplay opacity="0.1">
+    <source src="video/edit.mp4" type="video/mp4">
+   
+  </video>
+  <!--verificar el tiempo a segundos-->
+  
+</div>
+<!-- Imagenes de perifl izquierda derecha-->
+
+<script>
+  const audio = document.getElementById("audio");
+  const playButton = document.getElementById("playButton");
+  const videoOverlay = document.getElementById("videosor");
+  const video = document.getElementById("video");
+
+  let videoTriggered = false;
+ audio.volume = 1.0; 
+
+  playButton.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = "❚❚ Stop";
+    } else {
+      audio.pause();
+      playButton.textContent = "▶ Play";
+    }
+  });
+
+ 
+  audio.addEventListener("timeupdate", function () {
+    if (audio.currentTime >= 127 && !videoTriggered) {//127 segundos
+      videoTriggered = true; // Evita que se repita
+      mostrarVideo();
+    }
+  });
+
+  video.addEventListener("ended", function () {
+     videoOverlay.classList.remove("visible");
+      setTimeout(() => {
+    videoOverlay.style.display = "none"; // Luego lo oculta completamente
+       }, 1500);//tiempo de la transicion
+    fadeInAudio(); // Subir el volumen nuevamente 
+  });
+
+  // Función para bajar el volumen suavemente
+  function fadeOutAudio(targetVolume = 0.5) {
+    const fadeInterval = setInterval(() => {
+      if (audio.volume > targetVolume + 0.01) {
+        audio.volume -= 0.05;
+      } else {
+        audio.volume = targetVolume;
+        clearInterval(fadeInterval);
+      }
+    }, 200); // cada 200ms baja el volumen
+  }
+  // Función para subir el volumen suavemente
+  function fadeInAudio() {
+    const fadeInterval = setInterval(() => {
+      if (audio.volume < 1.0) {
+        audio.volume += 0.05;
+      } else {
+        audio.volume = 1.0; // Asegura que el volumen no supere 1.0
+        clearInterval(fadeInterval);
+      }
+    }, 200); // cada 200ms sube el volumen
+  }
+  // Mostrar el video en pantalla completa
+
+  function mostrarVideo() {
+    fadeOutAudio();
+    videoOverlay.style.display = "flex"; // Mostrar el contenedor
+     void videoOverlay.offsetWidth;
+    videoOverlay.classList.add("visible");
+    video.play(); // Por si el autoplay falla
+  }
+   // CUANDO EL VIDEO TERMINE
+
+
+</script>
+
+
+
+  <!--Frases-->
+<div class="imagen-con-frase" >
+  <a href="#" onclick="mostrarFrasesK();return false;">
+    <img src='images/you.png' width="100" height="120">
+  </a>
+  <div id="frasesk" class="fraseka"></div>
+</div>
+
+   <script >
+    const frasesk = [
+      "I love u too.",
+      "I love u too sooo much much.",
+      "Want kiss u and hug my love.",
+      "LOVE FOR UUUU.",
+      "I want to kiss you and sleep together."
+    ];
+
+     function mostrarFrasesK() {
+    const seleccionadas = [];
+    while (seleccionadas.length < 1) {
+      const f = frasesk[Math.floor(Math.random() * frasesk.length)];
+      if (!seleccionadas.includes(f)) {
+        seleccionadas.push(f);
+      }
+    }
+    document.getElementById("frasesk").innerHTML = seleccionadas.map(f => `<p>${f}</p>`).join('');
+  }
+    </script>
+    
+<div class="imagen-con-frase2" >
+  <a href="#" onclick="mostrarFrasesG();return false;">
+    <img src='images/me.png' width="100" height="120">
+  </a>
+  <div id="frasesg" class="frasegi"></div>
+</div>
+
+
+   <script >
+    const frasesg = [
+      "I love you soooo much.",
+      "I’ll do everything you want with you.",
+      "I wish you were here to give you kisses and fill you with love.",
+      "Te amo mucho mucho mucho.",
+      "Papoi."
+    ];
+
+     function mostrarFrasesG() {
+    const seleccionadas1 = [];
+    
+    while (seleccionadas1.length < 1) {
+      const f = frasesg[Math.floor(Math.random() * frasesg.length)];
+      if (!seleccionadas1.includes(f)) {
+        seleccionadas1.push(f);
+      }
+    }
+    document.getElementById("frasesg").innerHTML = seleccionadas1.map(f => `<p>${f}</p>`).join('');
+  }
+    </script>
+ </a>
+   <div class="kate" > <p>you</p></div>
+ <div class ="giu" > <p>me</p></div>
+  <div class="container">
+    <h1>To my precious love Kateryna Vaish</h1>
+    <p>I don't know how you did it, but you got into my mind, into my heart... and now I never want to get you out</p>
+
+
+
+  
+    <a class="button" href="carta.html">For You</a>
+    <a class="button" href="time.html">Time</a>
+
+</script>
+
+  </div>
+  <!--Imagenes match-->
+
+  <div class="imagenes-laterales">
+    <div class="imagen-izquierda">
+    <img id="imgIzq" src="images/perfilyou.png" alt="Perfil You" width="400" height="450">
+    </div>
+    <div class="imagen-derecha">
+    <img id="imgDer" src="images/perfilme.png" alt="Perfil Me" width="400" height="450" >
+    </div>
+  </div>
+
+  <script>
+    const imgIzq = document.getElementById("imgIzq");
+    const imgDer = document.getElementById("imgDer");
+
+    const imagenesIzq = [
+     "images/perfilyou.png",
+     "images/perfilyou2.png",
+     "images/perfilyou3.png",
+     "images/perfilyou4.png",
+     
+    ];
+    const imagenesDer = [
+     "images/perfilme.png",
+     "images/perfilme2.png",
+     "images/perfilme3.png",
+     "images/perfilme4.png",
+     
+    ];
+
+     let index = 1;
+    setInterval(() => {
+    // Desvanece
+    imgIzq.style.opacity = 0;
+    imgDer.style.opacity = 0;
+
+   
+    setTimeout(() => {
+      // Cambia imagen
+      index = (index + 0) % imagenesIzq.length;
+      imgIzq.src = imagenesIzq[index];
+      imgDer.src = imagenesDer[index];
+
+      // Vuelve a aparecer
+      imgIzq.style.opacity = 1;
+      imgDer.style.opacity = 1;
+
+      index++;
+      
+    }, 1000); // Tiempo de 
+    }, 3000); // Cambia cada 3 segundos
+
+  </script>
+  
+</body>
+</html>
